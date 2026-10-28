@@ -47,7 +47,7 @@
             scroll-behavior: smooth;
         }
         .glass-header {
-            background: rgba(15, 14, 12, 0.85);
+            background: rgba(15, 14, 12, 0.90);
             backdrop-filter: blur(12px);
         }
         .custom-scrollbar::-webkit-scrollbar {
@@ -62,7 +62,18 @@
         }
     </style>
 </head>
-<body class="custom-scrollbar antialiased selection:bg-clay selection:text-white">
+<body class="custom-scrollbar antialiased selection:bg-clay selection:text-white relative">
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/?text=Hello!%20I%20want%20to%20book%20a%20workshop%20at%20IRIS%20Ceramics" 
+       target="_blank" 
+       aria-label="WhatsApp" 
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out text-xs font-semibold uppercase tracking-wider pl-0 group-hover:pl-2">
+            WhatsApp
+        </span>
+    </a>
 
     <!-- HEADER -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-header border-b border-borderdark transition-all duration-300">
@@ -77,15 +88,53 @@
                 </div>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase text-stone-300 font-medium">
-                <a href="#services" class="hover:text-clay transition-colors">Услуги</a>
-                <a href="#coworking" class="hover:text-clay transition-colors">Коворкинг</a>
-                <a href="#about" class="hover:text-clay transition-colors">О нас</a>
-                <a href="#contacts" class="hover:text-clay transition-colors">Контакты</a>
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs tracking-widest uppercase text-stone-300 font-medium">
+                <a href="#services" data-i18n="nav_services" class="hover:text-clay transition-colors">Услуги</a>
+                <a href="#coworking" data-i18n="nav_coworking" class="hover:text-clay transition-colors">Коворкинг</a>
+                <a href="#faq" data-i18n="nav_faq" class="hover:text-clay transition-colors">FAQ</a>
+                <a href="#contacts" data-i18n="nav_contacts" class="hover:text-clay transition-colors">Контакты</a>
             </nav>
 
-            <div class="flex items-center gap-4">
-                <button onclick="openModal()" class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 bg-clay rounded-full hover:bg-clay-dark shadow-lg shadow-clay/20 hover:shadow-clay/40">
+            <div class="hidden lg:flex items-center gap-4">
+                <!-- Desktop Language Switcher -->
+                <div class="flex items-center gap-1 bg-carddark border border-borderdark rounded-full p-1 text-xs">
+                    <button onclick="setLanguage('ru')" id="lang-btn-ru" class="px-2.5 py-1 rounded-full text-white bg-clay font-medium transition-all">RU</button>
+                    <button onclick="setLanguage('ge')" id="lang-btn-ge" class="px-2.5 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all">GE</button>
+                    <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all">EN</button>
+                </div>
+
+                <button onclick="openModal()" data-i18n="btn_book" class="inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 bg-clay rounded-full hover:bg-clay-dark shadow-lg shadow-clay/20 hover:shadow-clay/40">
+                    Забронировать
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="flex lg:hidden items-center gap-3">
+                <button onclick="toggleMobileMenu()" class="p-2 text-stone-300 hover:text-clay">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-carddark border-b border-borderdark px-6 py-6 space-y-4">
+            <nav class="flex flex-col space-y-3 text-sm uppercase tracking-widest text-stone-300">
+                <a href="#services" onclick="toggleMobileMenu()" data-i18n="nav_services">Услуги</a>
+                <a href="#coworking" onclick="toggleMobileMenu()" data-i18n="nav_coworking">Коворкинг</a>
+                <a href="#faq" onclick="toggleMobileMenu()" data-i18n="nav_faq">FAQ</a>
+                <a href="#contacts" onclick="toggleMobileMenu()" data-i18n="nav_contacts">Контакты</a>
+            </nav>
+
+            <div class="pt-4 border-t border-borderdark flex items-center justify-between">
+                <!-- Mobile Language Switcher -->
+                <div class="flex items-center gap-1 bg-bgdark border border-borderdark rounded-full p-1 text-xs">
+                    <button onclick="setLanguage('ru')" id="m-lang-btn-ru" class="px-3 py-1 rounded-full text-white bg-clay font-medium">RU</button>
+                    <button onclick="setLanguage('ge')" id="m-lang-btn-ge" class="px-3 py-1 rounded-full text-stone-400 font-medium">GE</button>
+                    <button onclick="setLanguage('en')" id="m-lang-btn-en" class="px-3 py-1 rounded-full text-stone-400 font-medium">EN</button>
+                </div>
+
+                <button onclick="toggleMobileMenu(); openModal();" data-i18n="btn_book" class="px-5 py-2 text-xs font-semibold uppercase tracking-widest text-white bg-clay rounded-full">
                     Забронировать
                 </button>
             </div>
@@ -93,28 +142,28 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(#C27A5A_1px,transparent_1px)] [background-size:32px_32px]"></div>
         
         <div class="relative z-10 max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-clay/30 bg-carddark/60 text-clay text-xs tracking-widest uppercase mb-8 backdrop-blur-sm">
                 <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-                <span>Тбилиси • м. Важа-Пшавела (Нуцубидзе 2-й мкр)</span>
+                <span data-i18n="hero_location">Тбилиси • м. Важа-Пшавела (Нуцубидзе 2-й мкр)</span>
             </div>
 
-            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-sand mb-8 leading-[1.15]">
-                Пространство, где <span class="italic text-clay font-serif">глина</span> превращается в искусство
+            <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-sand mb-8 leading-[1.2]" data-i18n="hero_title">
+                Пространство, где глиняное ремесло превращается в искусство
             </h1>
 
-            <p class="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+            <p class="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed" data-i18n="hero_desc">
                 Гончарная мастерская, арт-коворкинг и уютные мастер-классы в Тбилиси. Создавайте посуду и декор своими руками в творческой атмосфере.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-xl shadow-clay/20">
+                <button onclick="openModal()" data-i18n="hero_btn_workshop" class="w-full sm:w-auto px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-xl shadow-clay/20">
                     Выбрать мастер-класс
                 </button>
-                <a href="#coworking" class="w-full sm:w-auto px-8 py-4 rounded-full border border-borderdark bg-carddark/40 text-stone-300 text-xs font-semibold uppercase tracking-widest hover:border-clay hover:text-sand transition-all">
+                <a href="#coworking" data-i18n="hero_btn_coworking" class="w-full sm:w-auto px-8 py-4 rounded-full border border-borderdark bg-carddark/40 text-stone-300 text-xs font-semibold uppercase tracking-widest hover:border-clay hover:text-sand transition-all">
                     Условия коворкинга
                 </a>
             </div>
@@ -125,9 +174,9 @@
     <section id="services" class="py-24 px-6 border-t border-borderdark bg-carddark/30">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold">Форматы & Занятия</span>
-                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 font-normal">Мастер-классы</h2>
-                <p class="text-stone-400 mt-4 text-sm font-light">В стоимость каждого занятия входят все материалы, глазуровка и 2 обжига в печи.</p>
+                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="services_subtitle">Форматы & Занятия</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 font-normal" data-i18n="services_title">Мастер-классы</h2>
+                <p class="text-stone-400 mt-4 text-sm font-light" data-i18n="services_desc">В стоимость каждого занятия входят все материалы, глазуровка и 2 обжига в печи.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -137,17 +186,17 @@
                         <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="disc" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="font-serif text-2xl text-sand mb-3">Гончарный круг & Лепка</h3>
-                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">
+                        <h3 class="font-serif text-2xl text-sand mb-3" data-i18n="card1_title">Гончарный круг & Лепка</h3>
+                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6" data-i18n="card1_desc">
                             Создайте свою уникальную кружку, вазу или тарелку с нуля. Опытный мастер поможет на каждом этапе.
                         </p>
                     </div>
                     <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
                         <span class="text-xs text-stone-400 flex items-center gap-1.5">
-                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> 2 часа
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> <span data-i18n="time_2h">2 часа</span>
                         </span>
                         <button onclick="openModal('Гончарный круг & Лепка')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1">
-                            Записаться <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <span data-i18n="btn_book_card">Записаться</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                         </button>
                     </div>
                 </div>
@@ -158,17 +207,17 @@
                         <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="heart" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="font-serif text-2xl text-sand mb-3">Гончарное свидание</h3>
-                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">
+                        <h3 class="font-serif text-2xl text-sand mb-3" data-i18n="card2_title">Гончарное свидание</h3>
+                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6" data-i18n="card2_desc">
                             Романтический вечер для двоих при свечах. Творческий процесс, легкая музыка и память на всю жизнь.
                         </p>
                     </div>
                     <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
                         <span class="text-xs text-stone-400 flex items-center gap-1.5">
-                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> 2 часа (для 2-х)
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> <span data-i18n="time_2h_couple">2 часа (для 2-х)</span>
                         </span>
                         <button onclick="openModal('Гончарное свидание')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1">
-                            Записаться <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <span data-i18n="btn_book_card">Записаться</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                         </button>
                     </div>
                 </div>
@@ -179,17 +228,17 @@
                         <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
                             <i data-lucide="sparkles" class="w-6 h-6"></i>
                         </div>
-                        <h3 class="font-serif text-2xl text-sand mb-3">Курсы по керамике</h3>
-                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">
+                        <h3 class="font-serif text-2xl text-sand mb-3" data-i18n="card3_title">Курсы по керамике</h3>
+                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6" data-i18n="card3_desc">
                             Глубокое погружение в ручную лепку, работы на круге, ангобы и глазуровку. Для тех, кто хочет овладеть ремеслом.
                         </p>
                     </div>
                     <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
                         <span class="text-xs text-stone-400 flex items-center gap-1.5">
-                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-clay"></i> 4–8 занятий
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-clay"></i> <span data-i18n="time_courses">4–8 занятий</span>
                         </span>
                         <button onclick="openModal('Курсы по керамике')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1">
-                            Узнать дату <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <span data-i18n="btn_book_card">Записаться</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                         </button>
                     </div>
                 </div>
@@ -201,9 +250,9 @@
     <section id="coworking" class="py-24 px-6 border-t border-borderdark">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold">Пространство для мастеров</span>
-                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 mb-6 font-normal">Арт-коворкинг в Тбилиси</h2>
-                <p class="text-stone-300 font-light leading-relaxed mb-8">
+                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="coworking_subtitle">Пространство для мастеров</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 mb-6 font-normal" data-i18n="coworking_title">Арт-коворкинг в Тбилиси</h2>
+                <p class="text-stone-300 font-light leading-relaxed mb-8" data-i18n="coworking_desc">
                     У вас уже есть опыт работы с глиной, но нет своей мастерской и оборудования? В IRIS Ceramics мы предоставляем свободный доступ к оборудованию, гончарным кругам и печам для обжига.
                 </p>
 
@@ -211,20 +260,20 @@
                     <div class="flex items-start gap-4 p-4 rounded-xl bg-carddark border border-borderdark">
                         <i data-lucide="check-circle-2" class="w-5 h-5 text-clay shrink-0 mt-0.5"></i>
                         <div>
-                            <h4 class="text-sand font-medium text-sm">Оборудование & Инструменты</h4>
-                            <p class="text-stone-400 text-xs font-light mt-1">Профессиональные гончарные круги, турнетки, стеки и турникеты.</p>
+                            <h4 class="text-sand font-medium text-sm" data-i18n="coworking_item1_title">Оборудование & Инструменты</h4>
+                            <p class="text-stone-400 text-xs font-light mt-1" data-i18n="coworking_item1_desc">Профессиональные гончарные круги, турнетки, стеки и турникеты.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4 p-4 rounded-xl bg-carddark border border-borderdark">
                         <i data-lucide="check-circle-2" class="w-5 h-5 text-clay shrink-0 mt-0.5"></i>
                         <div>
-                            <h4 class="text-sand font-medium text-sm">Печь & Обжиг</h4>
-                            <p class="text-stone-400 text-xs font-light mt-1">Возможность аренды полок или целой печи для утельного и глазурного обжига.</p>
+                            <h4 class="text-sand font-medium text-sm" data-i18n="coworking_item2_title">Печь & Обжиг</h4>
+                            <p class="text-stone-400 text-xs font-light mt-1" data-i18n="coworking_item2_desc">Возможность аренды полок или целой печи для утельного и глазурного обжига.</p>
                         </div>
                     </div>
                 </div>
 
-                <button onclick="openModal('Запрос на коворкинг')" class="px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all">
+                <button onclick="openModal('Запрос на коворкинг')" data-i18n="btn_coworking_book" class="px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all">
                     Забронировать место в коворкинге
                 </button>
             </div>
@@ -233,24 +282,80 @@
                 <div class="aspect-square rounded-2xl bg-carddark border border-borderdark p-8 flex flex-col justify-between relative overflow-hidden">
                     <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-clay/10 rounded-full blur-3xl"></div>
                     <div>
-                        <span class="text-xs uppercase tracking-widest text-clay font-semibold">Тарифы коворкинга</span>
-                        <h3 class="font-serif text-3xl text-sand mt-2">Гибкий график</h3>
+                        <span class="text-xs uppercase tracking-widest text-clay font-semibold" data-i18n="tariffs_subtitle">Тарифы коворкинга</span>
+                        <h3 class="font-serif text-3xl text-sand mt-2" data-i18n="tariffs_title">Гибкий график</h3>
                     </div>
                     <div class="space-y-6 my-auto">
                         <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
-                            <span class="text-stone-300 text-sm">Почасовая посещаемость</span>
-                            <span class="font-serif text-xl text-clay">Доступно</span>
+                            <span class="text-stone-300 text-sm" data-i18n="tariff_1">Почасовая посещаемость</span>
+                            <span class="font-serif text-xl text-clay" data-i18n="tariff_avail">Доступно</span>
                         </div>
                         <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
-                            <span class="text-stone-300 text-sm">Абонемент на месяц</span>
-                            <span class="font-serif text-xl text-clay">По запросу</span>
+                            <span class="text-stone-300 text-sm" data-i18n="tariff_2">Абонемент на месяц</span>
+                            <span class="font-serif text-xl text-clay" data-i18n="tariff_req">По запросу</span>
                         </div>
                         <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
-                            <span class="text-stone-300 text-sm">Аренда полки в печи</span>
-                            <span class="font-serif text-xl text-clay">Есть</span>
+                            <span class="text-stone-300 text-sm" data-i18n="tariff_3">Аренда полки в печи</span>
+                            <span class="font-serif text-xl text-clay" data-i18n="tariff_yes">Есть</span>
                         </div>
                     </div>
-                    <p class="text-xs text-stone-400 font-light">Специальные условия для постоянных резидентов студии.</p>
+                    <p class="text-xs text-stone-400 font-light" data-i18n="tariffs_note">Специальные условия для постоянных резидентов студии.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-24 px-6 border-t border-borderdark bg-carddark/20">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="faq_subtitle">Вопросы и ответы</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 font-normal" data-i18n="faq_title">Часто задаваемые вопросы</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden transition-all">
+                    <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex items-center justify-between text-sand hover:text-clay transition-colors">
+                        <span class="font-medium text-base sm:text-lg" data-i18n="faq1_q">Нужен ли опыт для участия в мастер-классе?</span>
+                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-clay transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-1" class="hidden px-6 pb-6 text-stone-400 text-sm font-light leading-relaxed border-t border-borderdark/40 pt-4" data-i18n="faq1_a">
+                        Совершенно нет! 90% наших гостей приходят впервые. Опытный мастер шаг за шагом объяснит технику работы с глиной и поможет вам создать прекрасное изделие.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden transition-all">
+                    <button onclick="toggleFaq(2)" class="w-full p-6 text-left flex items-center justify-between text-sand hover:text-clay transition-colors">
+                        <span class="font-medium text-base sm:text-lg" data-i18n="faq2_q">Когда я смогу забрать готовое изделие?</span>
+                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-clay transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-2" class="hidden px-6 pb-6 text-stone-400 text-sm font-light leading-relaxed border-t border-borderdark/40 pt-4" data-i18n="faq2_a">
+                        Изделие должно полностью высохнуть, после чего проходит два обжига и покрытие глазурью. Этот процесс занимает от 2 до 3 недель. Мы напишем вам, как только посуда будет готова!
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden transition-all">
+                    <button onclick="toggleFaq(3)" class="w-full p-6 text-left flex items-center justify-between text-sand hover:text-clay transition-colors">
+                        <span class="font-medium text-base sm:text-lg" data-i18n="faq3_q">Можно ли использовать посуду для еды и питья?</span>
+                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-clay transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-3" class="hidden px-6 pb-6 text-stone-400 text-sm font-light leading-relaxed border-t border-borderdark/40 pt-4" data-i18n="faq3_a">
+                        Да! Мы используем только пищевые глазури высокого качества. Ваши кружки, тарелки и миски будут полностью безопасны для горячих напитков и еды.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden transition-all">
+                    <button onclick="toggleFaq(4)" class="w-full p-6 text-left flex items-center justify-between text-sand hover:text-clay transition-colors">
+                        <span class="font-medium text-base sm:text-lg" data-i18n="faq4_q">Как работает коворкинг для керамистов?</span>
+                        <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-clay transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-4" class="hidden px-6 pb-6 text-stone-400 text-sm font-light leading-relaxed border-t border-borderdark/40 pt-4" data-i18n="faq4_a">
+                        Если у вас есть базовый опыт, вы можете бронировать часы в мастерской для самостоятельной работы. Вам предоставляется рабочий стол, гончарные круги и инструменты. Обжиг оплачивается отдельно или входит в абонемент.
+                    </div>
                 </div>
             </div>
         </div>
@@ -266,46 +371,48 @@
                     </div>
                     <span class="font-serif text-lg tracking-widest text-sand uppercase">IRIS CERAMICS</span>
                 </div>
-                <p class="text-stone-400 text-xs font-light leading-relaxed">
+                <p class="text-stone-400 text-xs font-light leading-relaxed" data-i18n="footer_about">
                     Гончарная студия и уютное арт-пространство в Тбилиси. Создаем тепло своими руками.
                 </p>
             </div>
 
             <div>
-                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4">Локация</h4>
-                <p class="text-stone-400 text-xs font-light leading-relaxed flex items-start gap-2">
+                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4" data-i18n="footer_location_title">Локация</h4>
+                <p class="text-stone-400 text-xs font-light leading-relaxed flex items-start gap-2" data-i18n="footer_address">
                     <i data-lucide="map-pin" class="w-4 h-4 text-clay shrink-0 mt-0.5"></i>
                     Тбилиси, Нуцубидзе 2-й мкр, 1-й квартал, д. 1 (м. Важа-Пшавела)
                 </p>
             </div>
 
             <div>
-                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4">Связаться с нами</h4>
-                <div class="space-y-2 text-xs font-light text-stone-400">
-                    <a href="https://instagram.com/iris.ceramics_" target="_blank" class="flex items-center gap-2 hover:text-clay transition-colors">
-                        <i data-lucide="instagram" class="w-4 h-4 text-clay"></i> @iris.ceramics_
+                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4" data-i18n="footer_contacts_title">Связаться с нами</h4>
+                <div class="space-y-3 text-xs font-light text-stone-400">
+                    <a href="https://instagram.com/iris.ceramics_" target="_blank" class="flex items-center gap-2 hover:text-clay transition-colors group">
+                        <i data-lucide="instagram" class="w-4 h-4 text-clay group-hover:scale-110 transition-transform"></i> 
+                        <span>@iris.ceramics_</span>
                     </a>
-                    <a href="#" class="flex items-center gap-2 hover:text-clay transition-colors">
-                        <i data-lucide="message-circle" class="w-4 h-4 text-clay"></i> Telegram / WhatsApp
+                    <a href="https://wa.me/?text=Hello!%20I%20want%20to%20book%20a%20workshop" target="_blank" class="flex items-center gap-2 hover:text-clay transition-colors group">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-clay group-hover:scale-110 transition-transform"></i> 
+                        <span>WhatsApp Chat</span>
                     </a>
                 </div>
             </div>
 
             <div>
-                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4">Режим работы</h4>
-                <p class="text-stone-400 text-xs font-light leading-relaxed">
+                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4" data-i18n="footer_schedule_title">Режим работы</h4>
+                <p class="text-stone-400 text-xs font-light leading-relaxed" data-i18n="footer_schedule">
                     По предварительной записи / расписанию коворкинга.
                 </p>
             </div>
         </div>
 
         <div class="max-w-7xl mx-auto pt-8 border-t border-borderdark/40 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-400">
-            <p>© IRIS Ceramics Tbilisi. Все права защищены.</p>
+            <p>© IRIS Ceramics Tbilisi. All rights reserved.</p>
             <p class="mt-2 sm:mt-0">Demo Version created for IRIS Ceramics</p>
         </div>
     </footer>
 
-    <!-- MODAL / SLIDE-OVER FOR BOOKING -->
+    <!-- MODAL FOR BOOKING -->
     <div id="bookingModal" class="fixed inset-0 z-50 hidden transition-opacity duration-300">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
@@ -315,13 +422,13 @@
                 </button>
 
                 <div class="mb-6">
-                    <span class="text-clay text-[10px] tracking-[0.2em] uppercase font-semibold">Быстрая запись</span>
-                    <h3 class="font-serif text-2xl text-sand mt-1">Забронировать место</h3>
+                    <span class="text-clay text-[10px] tracking-[0.2em] uppercase font-semibold" data-i18n="modal_subtitle">Быстрая запись</span>
+                    <h3 class="font-serif text-2xl text-sand mt-1" data-i18n="modal_title">Забронировать место</h3>
                 </div>
 
                 <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Выберите формат</label>
+                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2" data-i18n="modal_field_format">Выберите формат</label>
                         <select id="serviceSelect" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand focus:outline-none focus:border-clay transition-colors">
                             <option value="Гончарный круг & Лепка">Гончарный круг & Лепка</option>
                             <option value="Гончарное свидание">Гончарное свидание</option>
@@ -331,21 +438,16 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Ваше имя</label>
+                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2" data-i18n="modal_field_name">Ваше имя</label>
                         <input type="text" required placeholder="Как к вам обращаться?" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
                     </div>
 
                     <div>
-                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Телефон / Telegram / Instagram</label>
+                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2" data-i18n="modal_field_contact">Телефон / Telegram / Instagram</label>
                         <input type="text" required placeholder="@username или номер телефона" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
                     </div>
 
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Пожелания по дате</label>
-                        <input type="text" placeholder="Например: эта суббота, 16:00" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
-                    </div>
-
-                    <button type="submit" class="w-full py-4 rounded-xl bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-lg shadow-clay/20 mt-6">
+                    <button type="submit" data-i18n="modal_btn_submit" class="w-full py-4 rounded-xl bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-lg shadow-clay/20 mt-6">
                         Отправить заявку
                     </button>
                 </form>
@@ -354,16 +456,263 @@
                     <div class="w-12 h-12 rounded-full bg-clay/20 text-clay flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="check" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="font-serif text-xl text-sand mb-2">Заявка отправлена!</h4>
-                    <p class="text-xs text-stone-400 font-light">Мы свяжемся с вами в течение короткого времени для подтверждения брони.</p>
+                    <h4 class="font-serif text-xl text-sand mb-2" data-i18n="modal_success_title">Заявка отправлена!</h4>
+                    <p class="text-xs text-stone-400 font-light" data-i18n="modal_success_desc">Мы свяжемся с вами в течение короткого времени для подтверждения брони.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPTS -->
+    <!-- SCRIPTS & TRANSLATIONS -->
     <script>
         lucide.createIcons();
+
+        // TRANSLATIONS DICTIONARY (RU, GE, EN)
+        const i18nData = {
+            ru: {
+                nav_services: "Услуги",
+                nav_coworking: "Коворкинг",
+                nav_faq: "FAQ",
+                nav_contacts: "Контакты",
+                btn_book: "Забронировать",
+                hero_location: "Тбилиси • м. Важа-Пшавела (Нуцубидзе 2-й мкр)",
+                hero_title: "Пространство, где глиняное ремесло превращается в искусство",
+                hero_desc: "Гончарная мастерская, арт-коворкинг и уютные мастер-классы в Тбилиси. Создавайте посуду и декор своими руками в творческой атмосфере.",
+                hero_btn_workshop: "Выбрать мастер-класс",
+                hero_btn_coworking: "Условия коворкинга",
+                services_subtitle: "Форматы & Занятия",
+                services_title: "Мастер-классы",
+                services_desc: "В стоимость каждого занятия входят все материалы, глазуровка и 2 обжига в печи.",
+                card1_title: "Гончарный круг & Лепка",
+                card1_desc: "Создайте свою уникальную кружку, вазу или тарелку с нуля. Опытный мастер поможет на каждом этапе.",
+                card2_title: "Гончарное свидание",
+                card2_desc: "Романтический вечер для двоих при свечах. Творческий процесс, легкая музыка и память на всю жизнь.",
+                card3_title: "Курсы по керамике",
+                card3_desc: "Глубокое погружение в ручную лепку, работы на круге, ангобы и глазуровку. Для тех, кто хочет овладеть ремеслом.",
+                time_2h: "2 часа",
+                time_2h_couple: "2 часа (для 2-х)",
+                time_courses: "4–8 занятий",
+                btn_book_card: "Записаться",
+                coworking_subtitle: "Пространство для мастеров",
+                coworking_title: "Арт-коворкинг в Тбилиси",
+                coworking_desc: "У вас уже есть опыт работы с глиной, но нет своей мастерской и оборудования? В IRIS Ceramics мы предоставляем свободный доступ к оборудованию, гончарным кругам и печам для обжига.",
+                coworking_item1_title: "Оборудование & Инструменты",
+                coworking_item1_desc: "Профессиональные гончарные круги, турнетки, стеки и турникеты.",
+                coworking_item2_title: "Печь & Обжиг",
+                coworking_item2_desc: "Возможность аренды полок или целой печи для утельного и глазурного обжига.",
+                btn_coworking_book: "Забронировать место в коворкинге",
+                tariffs_subtitle: "Тарифы коворкинга",
+                tariffs_title: "Гибкий график",
+                tariff_1: "Почасовая посещаемость",
+                tariff_2: "Абонемент на месяц",
+                tariff_3: "Аренда полки в печи",
+                tariff_avail: "Доступно",
+                tariff_req: "По запросу",
+                tariff_yes: "Есть",
+                tariffs_note: "Специальные условия для постоянных резидентов студии.",
+                faq_subtitle: "Вопросы и ответы",
+                faq_title: "Часто задаваемые вопросы",
+                faq1_q: "Нужен ли опыт для участия в мастер-классе?",
+                faq1_a: "Совершенно нет! 90% наших гостей приходят впервые. Опытный мастер шаг за шагом объяснит технику работы с глиной и поможет вам создать прекрасное изделие.",
+                faq2_q: "Когда я смогу забрать готовое изделие?",
+                faq2_a: "Изделие должно полностью высохнуть, после чего проходит два обжига и покрытие глазурью. Этот процесс занимает от 2 до 3 недель. Мы напишем вам, как только посуда будет готова!",
+                faq3_q: "Можно ли использовать посуду для еды и питья?",
+                faq3_a: "Да! Мы используем только пищевые глазури высокого качества. Ваши кружки, тарелки и миски будут полностью безопасны для горячих напитков и еды.",
+                faq4_q: "Как работает коворкинг для керамистов?",
+                faq4_a: "Если у вас есть базовый опыт, вы можете бронировать часы в мастерской для самостоятельной работы. Вам предоставляется рабочий стол, гончарные круги и инструменты. Обжиг оплачивается отдельно или входит в абонемент.",
+                footer_about: "Гончарная студия и уютное арт-пространство в Тбилиси. Создаем тепло своими руками.",
+                footer_location_title: "Локация",
+                footer_address: "Тбилиси, Нуцубидзе 2-й мкр, 1-й квартал, д. 1 (м. Важа-Пшавела)",
+                footer_contacts_title: "Связаться с нами",
+                footer_schedule_title: "Режим работы",
+                footer_schedule: "По предварительной записи / расписанию коворкинга.",
+                modal_subtitle: "Быстрая запись",
+                modal_title: "Забронировать место",
+                modal_field_format: "Выберите формат",
+                modal_field_name: "Ваше имя",
+                modal_field_contact: "Телефон / Telegram / Instagram",
+                modal_btn_submit: "Отправить заявку",
+                modal_success_title: "Заявка отправлена!",
+                modal_success_desc: "Мы свяжемся с вами в течение короткого времени для подтверждения брони."
+            },
+            ge: {
+                nav_services: "სერვისები",
+                nav_coworking: "კოუორქინგი",
+                nav_faq: "FAQ",
+                nav_contacts: "კონტაქტი",
+                btn_book: "დაჯავშნა",
+                hero_location: "თბილისი • მ. ვაჟა-ფშაველა (ნუცუბიძის მე-2 მკრ)",
+                hero_title: "სივრცე, სადაც თიხის ოსტატობა ხელოვნებად იქცევა",
+                hero_desc: "თიხის სახელოსნო, არტ-კოუორქინგი და მყუდრო მასტერკლასები თბილისში. შექმენით ჭურჭელი და დეკორი საკუთარი ხელით შემოქმედებით გარემოში.",
+                hero_btn_workshop: "მასტერკლასის არჩევა",
+                hero_btn_coworking: "კოუორქინგის პირობები",
+                services_subtitle: "ფორმატები & კურსები",
+                services_title: "მასტერკლასები",
+                services_desc: "თითოეული შეხვედრის ღირებულებაში შედის ყველა მასალა, მოჭიქურება და 2 გამოწვა ღუმელში.",
+                card1_title: "საკეთებელი დაზგა & ხელით ძერწვა",
+                card1_desc: "შექმენით თქვენი უნიკალური ჭიქა, ლარნაკი ან თეფში ნულიდან. გამოცდილი ოსტატი დაგეხმარებათ თითოეულ ეტაპზე.",
+                card2_title: "კერამიკული პაემანი",
+                card2_desc: "რომანტიკული საღამო ორისთვის სანთლების შუქზე. შემოქმედებითი პროცესი, სასიამოვნო მუსიკა და მოგონება მთელი ცხოვრებისთვის.",
+                card3_title: "კერამიკის კურსები",
+                card3_desc: "ღრმა ჩაღრმავება ხელით ძერწვაში, დაზგაზე მუშაობაში, ანგობებსა და მოჭიქურებაში. მათთვის, ვისაც ხელოვნების დაუფლება სურს.",
+                time_2h: "2 საათი",
+                time_2h_couple: "2 საათი (ორზე)",
+                time_courses: "4–8 შეხვედრა",
+                btn_book_card: "ჩაწერა",
+                coworking_subtitle: "სივრცე ოსტატებისთვის",
+                coworking_title: "არტ-კოუორქინგი თბილისში",
+                coworking_desc: "უკვე გაქვთ თიხასთან მუშაობის გამოცდილება, მაგრამ არ გაქვთ საკუთარი სახელოსნო და აღჭურვილობა? IRIS Ceramics-ში გთავაზობთ თავისუფალ წვდომას დაზგებზე, ინსტრუმენტებსა და გამოწვის ღუმელზე.",
+                coworking_item1_title: "აღჭურვილობა & ინსტრუმენტები",
+                coworking_item1_desc: "პროფესიონალური საკეთებელი დაზგები, ტურნეტები და ინსტრუმენტები.",
+                coworking_item2_title: "ღუმელი & გამოწვა",
+                coworking_item2_desc: "თაროების ან მთლიანი ღუმელის იჯარის შესაძლებლობა გამოწვისთვის.",
+                btn_coworking_book: "ადგილის დაჯავშნა კოუორქინგში",
+                tariffs_subtitle: "კოუორქინგის ტარიფები",
+                tariffs_title: "მოქნილი გრაფიკი",
+                tariff_1: "საათობრივი ვიზიტი",
+                tariff_2: "თვიური აბონემენტი",
+                tariff_3: "თაროს იჯარა ღუმელში",
+                tariff_avail: "ხელმისაწვდომია",
+                tariff_req: "მოთხოვნით",
+                tariff_yes: "დიახ",
+                tariffs_note: "სპეციალური პირობები სტუდიის მუდმივი რეზიდენტებისთვის.",
+                faq_subtitle: "კითხვები და პასუხები",
+                faq_title: "ხშირად დასმული კითხვები",
+                faq1_q: "საჭიროა თუ არა გამოცდილება მასტერკლასზე დასასწრებად?",
+                faq1_a: "სრულიადაც არა! ჩვენი სტუმრების 90% პირველად მოდის. გამოცდილი ოსტატი ეტაპობრივად აგიხსნით თიხასთან მუშაობის ტექნიკას და დაგეხმარებათ ულამაზესი ნივთის შექმნაში.",
+                faq2_q: "როდის შევძლებ მზა ნივთის წაღებას?",
+                faq2_a: "ნივთი სრულად უნდა გაშრეს, რის შემდეგაც გადის ორ გამოწვასა და ჭიქურის წასმას. ეს პროცესი 2-დან 3 კვირამდე გრძელდება. მოგწერთ, როგორც კი მზად იქნება!",
+                faq3_q: "შეიძლება თუ არა ჭურჭლის გამოყენება საჭმლისა და სასმელისთვის?",
+                faq3_a: "დიახ! ჩვენ ვიყენებთ მხოლოდ მაღალი ხარისხის კვებით ჭიქურებს. თქვენი ჭიქები და თეფშები სრულიად უსაფრთხო იქნება ცხელი სასმელებისა და საკვებისთვის.",
+                faq4_q: "როგორ მუშაობს კერამიკოსების კოუორქინგი?",
+                faq4_a: "თუ გაქვთ საბაზისო გამოცდილება, შეგიძლიათ დაჯავშნოთ საათები სახელოსნოში დამოუკიდებელი მუშაობისთვის. გეძლევათ სამუშაო მაგიდა, დაზგები და ინსტრუმენტები.",
+                footer_about: "თიხის სტუდია და მყუდრო არტ-სივრცე თბილისში. ვქმნით სითბოს საკუთარი ხელით.",
+                footer_location_title: "ლოკაცია",
+                footer_address: "თბილისი, ნუცუბიძის მე-2 მკრ, 1-ლი კვარტალი, კორპ. 1 (მ. ვაჟა-ფშაველა)",
+                footer_contacts_title: "დაგვიკავშირდით",
+                footer_schedule_title: "სამუშაო საათები",
+                footer_schedule: "წინასწარი ჩაწერით / კოუორქინგის განრიგით.",
+                modal_subtitle: "სწრაფი ჩაწერა",
+                modal_title: "ადგილის დაჯავშნა",
+                modal_field_format: "აირჩიეთ ფორმატი",
+                modal_field_name: "თქვენი სახელი",
+                modal_field_contact: "ტელეფონი / Telegram / Instagram",
+                modal_btn_submit: "განაცხადის გაგზავნა",
+                modal_success_title: "განაცხადი გაგზავნილია!",
+                modal_success_desc: "მოკლე დროში დაგიკავშირდებით ჯავშნის დასადასტურებლად."
+            },
+            en: {
+                nav_services: "Services",
+                nav_coworking: "Co-working",
+                nav_faq: "FAQ",
+                nav_contacts: "Contacts",
+                btn_book: "Book Now",
+                hero_location: "Tbilisi • Metro Vazha-Pshavela (Nutsubidze 2nd mkr)",
+                hero_title: "A space where clay craftsmanship turns into art",
+                hero_desc: "Ceramic workshop, art co-working, and cozy masterclasses in Tbilisi. Create tableware and decor with your own hands in an inspiring atmosphere.",
+                hero_btn_workshop: "Choose a Workshop",
+                hero_btn_coworking: "Co-working Terms",
+                services_subtitle: "Formats & Classes",
+                services_title: "Masterclasses",
+                services_desc: "The price of each class includes all materials, glazing, and 2 kiln firings.",
+                card1_title: "Pottery Wheel & Handbuilding",
+                card1_desc: "Create your unique mug, vase, or plate from scratch. An experienced master will guide you step by step.",
+                card2_title: "Pottery Date",
+                card2_desc: "A romantic evening for two by candlelight. Creative process, ambient music, and a memory for a lifetime.",
+                card3_title: "Ceramic Courses",
+                card3_desc: "Deep dive into handbuilding, wheel throw, engobes, and glazing. For those who want to master the craft.",
+                time_2h: "2 hours",
+                time_2h_couple: "2 hours (for 2)",
+                time_courses: "4–8 classes",
+                btn_book_card: "Book Class",
+                coworking_subtitle: "Space for Artists",
+                coworking_title: "Art Co-working in Tbilisi",
+                coworking_desc: "Already have clay experience but lack your own studio and equipment? At IRIS Ceramics, we offer open access to wheels, tools, and kilns.",
+                coworking_item1_title: "Equipment & Tools",
+                coworking_item1_desc: "Professional pottery wheels, banding wheels, and crafting tools.",
+                coworking_item2_title: "Kiln & Firing",
+                coworking_item2_desc: "Option to rent shelves or an entire kiln for bisque and glaze firings.",
+                btn_coworking_book: "Book Co-working Space",
+                tariffs_subtitle: "Co-working Tariffs",
+                tariffs_title: "Flexible Schedule",
+                tariff_1: "Hourly Pass",
+                tariff_2: "Monthly Subscription",
+                tariff_3: "Kiln Shelf Rental",
+                tariff_avail: "Available",
+                tariff_req: "On Request",
+                tariff_yes: "Yes",
+                tariffs_note: "Special conditions for studio residents.",
+                faq_subtitle: "Questions & Answers",
+                faq_title: "Frequently Asked Questions",
+                faq1_q: "Do I need experience to join a workshop?",
+                faq1_a: "Not at all! 90% of our guests are beginners. An experienced master will explain the techniques step-by-step and help you build a beautiful piece.",
+                faq2_q: "When can I pick up my finished piece?",
+                faq2_a: "The piece needs to dry completely, after which it goes through two firings and glazing. This process takes 2 to 3 weeks. We will text you once it's ready!",
+                faq3_q: "Is the pottery food and drink safe?",
+                faq3_a: "Yes! We use only high-quality, food-safe glazes. Your cups and plates will be completely safe for hot drinks and food.",
+                faq4_q: "How does the ceramic co-working work?",
+                faq4_a: "If you have basic experience, you can book studio hours for independent work. Worktables, pottery wheels, and tools are provided.",
+                footer_about: "Pottery studio and cozy art space in Tbilisi. Creating warmth with our hands.",
+                footer_location_title: "Location",
+                footer_address: "Tbilisi, Nutsubidze 2nd mkr, 1st micro, bldg 1 (M. Vazha-Pshavela)",
+                footer_contacts_title: "Contact Us",
+                footer_schedule_title: "Working Hours",
+                footer_schedule: "By appointment / co-working schedule.",
+                modal_subtitle: "Quick Booking",
+                modal_title: "Book a Spot",
+                modal_field_format: "Select Format",
+                modal_field_name: "Your Name",
+                modal_field_contact: "Phone / Telegram / Instagram",
+                modal_btn_submit: "Submit Application",
+                modal_success_title: "Application Sent!",
+                modal_success_desc: "We will contact you shortly to confirm your booking."
+            }
+        };
+
+        function setLanguage(lang) {
+            const data = i18nData[lang];
+            if (!data) return;
+
+            // Update all translated elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (data[key]) {
+                    el.textContent = data[key];
+                }
+            });
+
+            // Update button UI states
+            ['ru', 'ge', 'en'].forEach(l => {
+                const btn = document.getElementById(`lang-btn-${l}`);
+                const mBtn = document.getElementById(`m-lang-btn-${l}`);
+                
+                if (l === lang) {
+                    if (btn) btn.className = "px-2.5 py-1 rounded-full text-white bg-clay font-medium transition-all";
+                    if (mBtn) mBtn.className = "px-3 py-1 rounded-full text-white bg-clay font-medium transition-all";
+                } else {
+                    if (btn) btn.className = "px-2.5 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all";
+                    if (mBtn) mBtn.className = "px-3 py-1 rounded-full text-stone-400 font-medium transition-all";
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                ans.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
 
         function openModal(serviceName) {
             const modal = document.getElementById('bookingModal');
@@ -377,7 +726,6 @@
         function closeModal() {
             const modal = document.getElementById('bookingModal');
             modal.classList.add('hidden');
-            // Reset form status
             document.getElementById('bookingForm').classList.remove('hidden');
             document.getElementById('successMessage').classList.add('hidden');
         }
