@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRIS CERAMICS — Гончарная мастерская & Арт-коворкинг в Тбилиси</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clay: {
+                            DEFAULT: '#C27A5A',
+                            dark: '#A66143',
+                            light: '#D99B7E'
+                        },
+                        sand: '#E6DFD5',
+                        bgdark: '#0F0E0C',
+                        carddark: '#181614',
+                        borderdark: '#2A2723'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #0F0E0C;
+            color: #F5F2EC;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-header {
+            background: rgba(15, 14, 12, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0F0E0C;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #2A2723;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar antialiased selection:bg-clay selection:text-white">
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-header border-b border-borderdark transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-clay/40 flex items-center justify-center text-clay group-hover:border-clay transition-colors">
+                    <i data-lucide="flower-2" class="w-5 h-5"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl tracking-widest text-sand uppercase font-semibold">IRIS</span>
+                    <span class="text-[10px] tracking-[0.2em] text-stone-400 uppercase">Ceramics Tbilisi</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm tracking-widest uppercase text-stone-300 font-medium">
+                <a href="#services" class="hover:text-clay transition-colors">Услуги</a>
+                <a href="#coworking" class="hover:text-clay transition-colors">Коворкинг</a>
+                <a href="#about" class="hover:text-clay transition-colors">О нас</a>
+                <a href="#contacts" class="hover:text-clay transition-colors">Контакты</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="openModal()" class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 bg-clay rounded-full hover:bg-clay-dark shadow-lg shadow-clay/20 hover:shadow-clay/40">
+                    Забронировать
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(#C27A5A_1px,transparent_1px)] [background-size:32px_32px]"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-clay/30 bg-carddark/60 text-clay text-xs tracking-widest uppercase mb-8 backdrop-blur-sm">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                <span>Тбилиси • м. Важа-Пшавела (Нуцубидзе 2-й мкр)</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-sand mb-8 leading-[1.15]">
+                Пространство, где <span class="italic text-clay font-serif">глина</span> превращается в искусство
+            </h1>
+
+            <p class="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Гончарная мастерская, арт-коворкинг и уютные мастер-классы в Тбилиси. Создавайте посуду и декор своими руками в творческой атмосфере.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-xl shadow-clay/20">
+                    Выбрать мастер-класс
+                </button>
+                <a href="#coworking" class="w-full sm:w-auto px-8 py-4 rounded-full border border-borderdark bg-carddark/40 text-stone-300 text-xs font-semibold uppercase tracking-widest hover:border-clay hover:text-sand transition-all">
+                    Условия коворкинга
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 px-6 border-t border-borderdark bg-carddark/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold">Форматы & Занятия</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 font-normal">Мастер-классы</h2>
+                <p class="text-stone-400 mt-4 text-sm font-light">В стоимость каждого занятия входят все материалы, глазуровка и 2 обжига в печи.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-carddark border border-borderdark rounded-2xl p-8 hover:border-clay/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="disc" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-sand mb-3">Гончарный круг & Лепка</h3>
+                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">
+                            Создайте свою уникальную кружку, вазу или тарелку с нуля. Опытный мастер поможет на каждом этапе.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
+                        <span class="text-xs text-stone-400 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> 2 часа
+                        </span>
+                        <button onclick="openModal('Гончарный круг & Лепка')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1">
+                            Записаться <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-carddark border border-borderdark rounded-2xl p-8 hover:border-clay/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="heart" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-sand mb-3">Гончарное свидание</h3>
+                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">
+                            Романтический вечер для двоих при свечах. Творческий процесс, легкая музыка и память на всю жизнь.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
+                        <span class="text-xs text-stone-400 flex items-center gap-1.5">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> 2 часа (для 2-х)
+                        </span>
+                        <button onclick="openModal('Гончарное свидание')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1">
+                            Записаться <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-carddark border border-borderdark rounded-2xl p-8 hover:border-clay/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl text-sand mb-3">Курсы по керамике</h3>
+                        <p class="text-stone-400 text-sm font-light leading-relaxed mb-6">
+                            Глубокое погружение в ручную лепку, работы на круге, ангобы и глазуровку. Для тех, кто хочет овладеть ремеслом.
+                        </p>
+                    </div>
+                    <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
+                        <span class="text-xs text-stone-400 flex items-center gap-1.5">
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-clay"></i> 4–8 занятий
+                        </span>
+                        <button onclick="openModal('Курсы по керамике')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1">
+                            Узнать дату <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COWORKING SECTION -->
+    <section id="coworking" class="py-24 px-6 border-t border-borderdark">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold">Пространство для мастеров</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 mb-6 font-normal">Арт-коворкинг в Тбилиси</h2>
+                <p class="text-stone-300 font-light leading-relaxed mb-8">
+                    У вас уже есть опыт работы с глиной, но нет своей мастерской и оборудования? В IRIS Ceramics мы предоставляем свободный доступ к оборудованию, гончарным кругам и печам для обжига.
+                </p>
+
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start gap-4 p-4 rounded-xl bg-carddark border border-borderdark">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-clay shrink-0 mt-0.5"></i>
+                        <div>
+                            <h4 class="text-sand font-medium text-sm">Оборудование & Инструменты</h4>
+                            <p class="text-stone-400 text-xs font-light mt-1">Профессиональные гончарные круги, турнетки, стеки и турникеты.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-xl bg-carddark border border-borderdark">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-clay shrink-0 mt-0.5"></i>
+                        <div>
+                            <h4 class="text-sand font-medium text-sm">Печь & Обжиг</h4>
+                            <p class="text-stone-400 text-xs font-light mt-1">Возможность аренды полок или целой печи для утельного и глазурного обжига.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="openModal('Запрос на коворкинг')" class="px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all">
+                    Забронировать место в коворкинге
+                </button>
+            </div>
+
+            <div class="relative">
+                <div class="aspect-square rounded-2xl bg-carddark border border-borderdark p-8 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-clay/10 rounded-full blur-3xl"></div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-clay font-semibold">Тарифы коворкинга</span>
+                        <h3 class="font-serif text-3xl text-sand mt-2">Гибкий график</h3>
+                    </div>
+                    <div class="space-y-6 my-auto">
+                        <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
+                            <span class="text-stone-300 text-sm">Почасовая посещаемость</span>
+                            <span class="font-serif text-xl text-clay">Доступно</span>
+                        </div>
+                        <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
+                            <span class="text-stone-300 text-sm">Абонемент на месяц</span>
+                            <span class="font-serif text-xl text-clay">По запросу</span>
+                        </div>
+                        <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
+                            <span class="text-stone-300 text-sm">Аренда полки в печи</span>
+                            <span class="font-serif text-xl text-clay">Есть</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-stone-400 font-light">Специальные условия для постоянных резидентов студии.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACTS -->
+    <footer id="contacts" class="py-20 px-6 border-t border-borderdark bg-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full border border-clay/40 flex items-center justify-center text-clay">
+                        <i data-lucide="flower-2" class="w-4 h-4"></i>
+                    </div>
+                    <span class="font-serif text-lg tracking-widest text-sand uppercase">IRIS CERAMICS</span>
+                </div>
+                <p class="text-stone-400 text-xs font-light leading-relaxed">
+                    Гончарная студия и уютное арт-пространство в Тбилиси. Создаем тепло своими руками.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4">Локация</h4>
+                <p class="text-stone-400 text-xs font-light leading-relaxed flex items-start gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-clay shrink-0 mt-0.5"></i>
+                    Тбилиси, Нуцубидзе 2-й мкр, 1-й квартал, д. 1 (м. Важа-Пшавела)
+                </p>
+            </div>
+
+            <div>
+                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4">Связаться с нами</h4>
+                <div class="space-y-2 text-xs font-light text-stone-400">
+                    <a href="https://instagram.com/iris.ceramics_" target="_blank" class="flex items-center gap-2 hover:text-clay transition-colors">
+                        <i data-lucide="instagram" class="w-4 h-4 text-clay"></i> @iris.ceramics_
+                    </a>
+                    <a href="#" class="flex items-center gap-2 hover:text-clay transition-colors">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-clay"></i> Telegram / WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4">Режим работы</h4>
+                <p class="text-stone-400 text-xs font-light leading-relaxed">
+                    По предварительной записи / расписанию коворкинга.
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-borderdark/40 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stone-400">
+            <p>© IRIS Ceramics Tbilisi. Все права защищены.</p>
+            <p class="mt-2 sm:mt-0">Demo Version created for IRIS Ceramics</p>
+        </div>
+    </footer>
+
+    <!-- MODAL / SLIDE-OVER FOR BOOKING -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
+            <div class="bg-carddark border border-borderdark w-full max-w-lg rounded-2xl p-8 relative shadow-2xl">
+                <button onclick="closeModal()" class="absolute top-6 right-6 text-stone-400 hover:text-sand transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+
+                <div class="mb-6">
+                    <span class="text-clay text-[10px] tracking-[0.2em] uppercase font-semibold">Быстрая запись</span>
+                    <h3 class="font-serif text-2xl text-sand mt-1">Забронировать место</h3>
+                </div>
+
+                <form id="bookingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Выберите формат</label>
+                        <select id="serviceSelect" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand focus:outline-none focus:border-clay transition-colors">
+                            <option value="Гончарный круг & Лепка">Гончарный круг & Лепка</option>
+                            <option value="Гончарное свидание">Гончарное свидание</option>
+                            <option value="Курсы по керамике">Курсы по керамике</option>
+                            <option value="Запрос на коворкинг">Арт-коворкинг</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Ваше имя</label>
+                        <input type="text" required placeholder="Как к вам обращаться?" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Телефон / Telegram / Instagram</label>
+                        <input type="text" required placeholder="@username или номер телефона" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2">Пожелания по дате</label>
+                        <input type="text" placeholder="Например: эта суббота, 16:00" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-lg shadow-clay/20 mt-6">
+                        Отправить заявку
+                    </button>
+                </form>
+
+                <div id="successMessage" class="hidden text-center py-8">
+                    <div class="w-12 h-12 rounded-full bg-clay/20 text-clay flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="check" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-serif text-xl text-sand mb-2">Заявка отправлена!</h4>
+                    <p class="text-xs text-stone-400 font-light">Мы свяжемся с вами в течение короткого времени для подтверждения брони.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        function openModal(serviceName) {
+            const modal = document.getElementById('bookingModal');
+            const select = document.getElementById('serviceSelect');
+            if (serviceName && select) {
+                select.value = serviceName;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('hidden');
+            // Reset form status
+            document.getElementById('bookingForm').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('bookingForm').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
