@@ -4,64 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO & AI SEARCH ENGINE OPTIMIZATION (GEO) -->
+    <!-- SEO & AI SEARCH ENGINE OPTIMIZATION -->
     <title id="seo-title">IRIS CERAMICS — Гончарная мастерская, коворкинг и мастер-классы в Тбилиси</title>
     <meta id="seo-desc" name="description" content="Уютная гончарная студия и арт-коворкинг в Тбилиси (Нуцубидзе, м. Важа-Пшавела). Мастер-классы по ручной лепке, гончарному кругу, свидания при свечах и авторская керамика.">
-    <meta name="keywords" content="гончарная мастерская тбилиси, კერამიკის მასტერკლასი თბილისში, pottery workshop tbilisi, арт коворкинг тбилиси, керамика ручной работы, ваби саби тбилиси">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <link rel="canonical" href="https://iris-ceramics.vercel.app/">
-
-    <!-- OPEN GRAPH FOR SOCIALS & AI PREVIEWS -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="IRIS CERAMICS — Искусство замедлиться & Авторская керамика">
-    <meta property="og:description" content="Уютная гончарная студия и арт-коворкинг в Тбилиси. Мастер-классы, коворкинг и авторские изделия.">
-    <meta property="og:url" content="https://iris-ceramics.vercel.app/">
-    <meta property="og:site_name" content="IRIS Ceramics Tbilisi">
-    
-    <!-- JSON-LD STRUCTURED DATA FOR GOOGLE & AI CRAWLERS -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "IRIS Ceramics Studio Tbilisi",
-      "image": "https://iris-ceramics.vercel.app/og-image.jpg",
-      "@id": "https://iris-ceramics.vercel.app/",
-      "url": "https://iris-ceramics.vercel.app/",
-      "telephone": "",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Nutsubidze 2nd mkr, 1st micro, bldg 1",
-        "addressLocality": "Tbilisi",
-        "addressRegion": "Kvemo Kartli / Tbilisi",
-        "postalCode": "0183",
-        "addressCountry": "GE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 41.7241,
-        "longitude": 44.7335
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "11:00",
-        "closes": "21:00"
-      },
-      "sameAs": [
-        "https://instagram.com/iris.ceramics_"
-      ],
-      "description": "Pottery workshops, ceramic courses, art co-working and handcrafted ceramics in Tbilisi."
-    }
-    </script>
+    <meta name="keywords" content="гончарная мастерская тбилиси, კერამიკის მასტერკლასი თბილისში, pottery workshop tbilisi, арт коворкинг тбилиси, керамика ручной работы">
+    <meta name="robots" content="index, follow">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,9 +28,9 @@
                             light: '#D99B7E'
                         },
                         sand: '#E6DFD5',
-                        bgdark: '#0F0E0C',
-                        carddark: '#181614',
-                        borderdark: '#2A2723'
+                        bgdark: '#0D0C0A',
+                        carddark: '#161412',
+                        borderdark: '#26221E'
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -99,28 +46,37 @@
 
     <style>
         body {
-            background-color: #0F0E0C;
+            background-color: #0D0C0A;
             color: #F5F2EC;
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
         .glass-header {
-            background: rgba(15, 14, 12, 0.92);
-            backdrop-filter: blur(16px);
+            background: rgba(13, 12, 10, 0.88);
+            backdrop-filter: blur(20px);
+        }
+        .glass-card {
+            background: rgba(22, 20, 18, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(194, 122, 90, 0.15);
+        }
+        .glass-card:hover {
+            border-color: rgba(194, 122, 90, 0.45);
+            box-shadow: 0 10px 30px -10px rgba(194, 122, 90, 0.15);
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #0F0E0C;
+            background: #0D0C0A;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #2A2723;
+            background: #26221E;
             border-radius: 3px;
         }
     </style>
 </head>
-<body class="custom-scrollbar antialiased selection:bg-clay selection:text-white relative">
+<body class="custom-scrollbar antialiased selection:bg-clay selection:text-white relative overflow-x-hidden">
 
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/?text=Hello!%20I%20want%20to%20experience%20IRIS%20Ceramics" 
@@ -132,6 +88,10 @@
             WhatsApp
         </span>
     </a>
+
+    <!-- AMBIENT BACKGROUND GLOWS -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-clay/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-10 -right-20 w-[500px] h-[500px] bg-clay/5 rounded-full blur-[160px] pointer-events-none z-0"></div>
 
     <!-- HEADER -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-header border-b border-borderdark transition-all duration-300">
@@ -151,6 +111,7 @@
                 <a href="#philosophy" data-i18n="nav_philosophy" class="hover:text-clay transition-colors">Философия</a>
                 <a href="#shop" data-i18n="nav_shop" class="hover:text-clay transition-colors">Артефакты</a>
                 <a href="#experiences" data-i18n="nav_experiences" class="hover:text-clay transition-colors">Опыт & Эмоции</a>
+                <a href="#gifts" data-i18n="nav_gifts" class="text-clay font-semibold hover:text-clay-light transition-colors">Подарки</a>
                 <a href="#coworking" data-i18n="nav_coworking" class="hover:text-clay transition-colors">Дом Мастеров</a>
                 <a href="#faq" data-i18n="nav_faq" class="hover:text-clay transition-colors">FAQ</a>
             </nav>
@@ -158,7 +119,7 @@
             <div class="hidden lg:flex items-center gap-4">
                 <!-- Desktop Language Switcher -->
                 <div class="flex items-center gap-1 bg-carddark border border-borderdark rounded-full p-1 text-xs">
-                    <button onclick="setLanguage('ru')" id="lang-btn-ru" class="px-2.5 py-1 rounded-full text-white bg-clay font-medium transition-all">RU</button>
+                    <button onclick="setLanguage('ru')" id="lang-btn-ru" class="px-2.5 py-1 rounded-full text-white bg-clay font-medium transition-all shadow-sm">RU</button>
                     <button onclick="setLanguage('ge')" id="lang-btn-ge" class="px-2.5 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all">GE</button>
                     <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2.5 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all">EN</button>
                 </div>
@@ -182,12 +143,12 @@
                 <a href="#philosophy" onclick="toggleMobileMenu()" data-i18n="nav_philosophy">Философия</a>
                 <a href="#shop" onclick="toggleMobileMenu()" data-i18n="nav_shop">Артефакты</a>
                 <a href="#experiences" onclick="toggleMobileMenu()" data-i18n="nav_experiences">Опыт & Эмоции</a>
+                <a href="#gifts" onclick="toggleMobileMenu()" data-i18n="nav_gifts" class="text-clay font-semibold">Подарки</a>
                 <a href="#coworking" onclick="toggleMobileMenu()" data-i18n="nav_coworking">Дом Мастеров</a>
                 <a href="#faq" onclick="toggleMobileMenu()" data-i18n="nav_faq">FAQ</a>
             </nav>
 
             <div class="pt-4 border-t border-borderdark flex items-center justify-between">
-                <!-- Mobile Language Switcher Sync -->
                 <div class="flex items-center gap-1 bg-bgdark border border-borderdark rounded-full p-1 text-xs">
                     <button onclick="setLanguage('ru')" id="m-lang-btn-ru" class="px-3 py-1 rounded-full text-white bg-clay font-medium">RU</button>
                     <button onclick="setLanguage('ge')" id="m-lang-btn-ge" class="px-3 py-1 rounded-full text-stone-400 font-medium">GE</button>
@@ -202,11 +163,9 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(#C27A5A_1px,transparent_1px)] [background-size:32px_32px]"></div>
-        
-        <div class="relative z-10 max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-clay/30 bg-carddark/60 text-clay text-xs tracking-widest uppercase mb-8 backdrop-blur-sm">
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 z-10">
+        <div class="relative max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-clay/30 bg-carddark/80 text-clay text-xs tracking-widest uppercase mb-8 backdrop-blur-md shadow-inner">
                 <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
                 <span data-i18n="hero_location">Оазис тишины в сердце Тбилиси • м. Важа-Пшавела</span>
             </div>
@@ -220,10 +179,10 @@
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onclick="openModal()" data-i18n="hero_btn_experience" class="w-full sm:w-auto px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-xl shadow-clay/20">
+                <button onclick="openModal()" data-i18n="hero_btn_experience" class="w-full sm:w-auto px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-xl shadow-clay/20 hover:scale-105">
                     Погрузиться в процесс
                 </button>
-                <a href="#shop" data-i18n="hero_btn_touch" class="w-full sm:w-auto px-8 py-4 rounded-full border border-borderdark bg-carddark/40 text-stone-300 text-xs font-semibold uppercase tracking-widest hover:border-clay hover:text-sand transition-all">
+                <a href="#shop" data-i18n="hero_btn_touch" class="w-full sm:w-auto px-8 py-4 rounded-full border border-borderdark bg-carddark/60 text-stone-300 text-xs font-semibold uppercase tracking-widest hover:border-clay hover:text-sand transition-all">
                     Прикоснуться к коллекции
                 </a>
             </div>
@@ -231,7 +190,7 @@
     </section>
 
     <!-- PHILOSOPHY SECTION -->
-    <section id="philosophy" class="py-20 px-6 border-t border-borderdark bg-carddark/20">
+    <section id="philosophy" class="py-20 px-6 border-t border-borderdark bg-carddark/30 relative z-10">
         <div class="max-w-5xl mx-auto text-center">
             <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="philo_subtitle">Философия Ваби-Саби</span>
             <h2 class="font-serif text-2xl sm:text-4xl text-sand mt-4 mb-6 leading-relaxed font-normal" data-i18n="philo_title">
@@ -241,8 +200,8 @@
         </div>
     </section>
 
-    <!-- ARTIFACTS / SHOP SECTION -->
-    <section id="shop" class="py-24 px-6 border-t border-borderdark bg-carddark/40">
+    <!-- SHOP SECTION -->
+    <section id="shop" class="py-24 px-6 border-t border-borderdark bg-carddark/50 relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
                 <div>
@@ -256,9 +215,9 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Item 1 -->
-                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden group hover:border-clay/50 transition-all flex flex-col justify-between">
-                    <div class="relative aspect-square overflow-hidden bg-bgdark flex items-center justify-center p-8">
-                        <div class="w-32 h-32 rounded-full border-2 border-clay/30 bg-clay/10 flex items-center justify-center text-clay group-hover:scale-110 transition-transform">
+                <div class="glass-card rounded-2xl overflow-hidden transition-all flex flex-col justify-between">
+                    <div class="relative aspect-square overflow-hidden bg-bgdark/60 flex items-center justify-center p-8">
+                        <div class="w-32 h-32 rounded-full border border-clay/30 bg-clay/10 flex items-center justify-center text-clay">
                             <i data-lucide="coffee" class="w-12 h-12"></i>
                         </div>
                     </div>
@@ -275,9 +234,9 @@
                 </div>
 
                 <!-- Item 2 -->
-                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden group hover:border-clay/50 transition-all flex flex-col justify-between">
-                    <div class="relative aspect-square overflow-hidden bg-bgdark flex items-center justify-center p-8">
-                        <div class="w-32 h-32 rounded-full border-2 border-clay/30 bg-clay/10 flex items-center justify-center text-clay group-hover:scale-110 transition-transform">
+                <div class="glass-card rounded-2xl overflow-hidden transition-all flex flex-col justify-between">
+                    <div class="relative aspect-square overflow-hidden bg-bgdark/60 flex items-center justify-center p-8">
+                        <div class="w-32 h-32 rounded-full border border-clay/30 bg-clay/10 flex items-center justify-center text-clay">
                             <i data-lucide="sun" class="w-12 h-12"></i>
                         </div>
                     </div>
@@ -294,9 +253,9 @@
                 </div>
 
                 <!-- Item 3 -->
-                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden group hover:border-clay/50 transition-all flex flex-col justify-between">
-                    <div class="relative aspect-square overflow-hidden bg-bgdark flex items-center justify-center p-8">
-                        <div class="w-32 h-32 rounded-full border-2 border-clay/30 bg-clay/10 flex items-center justify-center text-clay group-hover:scale-110 transition-transform">
+                <div class="glass-card rounded-2xl overflow-hidden transition-all flex flex-col justify-between">
+                    <div class="relative aspect-square overflow-hidden bg-bgdark/60 flex items-center justify-center p-8">
+                        <div class="w-32 h-32 rounded-full border border-clay/30 bg-clay/10 flex items-center justify-center text-clay">
                             <i data-lucide="sparkle" class="w-12 h-12"></i>
                         </div>
                     </div>
@@ -315,8 +274,24 @@
         </div>
     </section>
 
-    <!-- EXPERIENCES / WORKSHOPS SECTION -->
-    <section id="experiences" class="py-24 px-6 border-t border-borderdark">
+    <!-- GIFT CARDS SECTION (NEUROMARKETING ADDITION) -->
+    <section id="gifts" class="py-24 px-6 border-t border-borderdark bg-clay/5 relative z-10">
+        <div class="max-w-5xl mx-auto glass-card p-10 sm:p-16 rounded-3xl relative overflow-hidden text-center">
+            <div class="max-w-2xl mx-auto">
+                <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="gift_subtitle">Подарите особенный момент</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 mb-6 font-normal" data-i18n="gift_title">Подарочные сертификаты IRIS</h2>
+                <p class="text-stone-300 font-light text-sm sm:text-base leading-relaxed mb-8" data-i18n="gift_desc">
+                    Идеальный подарок для близких — возможность прикоснуться к искусству, замедлиться и создать ценную вещь своими руками. Доступны электронные и красивые физические сертификаты.
+                </p>
+                <button onclick="openModal('Запрос: Подарочный сертификат')" data-i18n="btn_gift" class="px-8 py-4 rounded-full bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-xl shadow-clay/20">
+                    Оформить сертификат
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCES SECTION -->
+    <section id="experiences" class="py-24 px-6 border-t border-borderdark relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="exp_subtitle">Чувственный опыт</span>
@@ -326,9 +301,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="bg-carddark border border-borderdark rounded-2xl p-8 hover:border-clay/50 transition-all group flex flex-col justify-between">
+                <div class="glass-card rounded-2xl p-8 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
+                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6">
                             <i data-lucide="disc" class="w-6 h-6"></i>
                         </div>
                         <h3 class="font-serif text-2xl text-sand mb-3" data-i18n="exp1_title">Первое прикосновение к кругу</h3>
@@ -347,9 +322,9 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="bg-carddark border border-borderdark rounded-2xl p-8 hover:border-clay/50 transition-all group flex flex-col justify-between">
+                <div class="glass-card rounded-2xl p-8 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
+                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6">
                             <i data-lucide="heart" class="w-6 h-6"></i>
                         </div>
                         <h3 class="font-serif text-2xl text-sand mb-3" data-i18n="exp2_title">Свидание при свечах</h3>
@@ -368,9 +343,9 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="bg-carddark border border-borderdark rounded-2xl p-8 hover:border-clay/50 transition-all group flex flex-col justify-between">
+                <div class="glass-card rounded-2xl p-8 transition-all flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6 group-hover:scale-110 transition-transform">
+                        <div class="w-12 h-12 rounded-xl bg-clay/10 border border-clay/20 flex items-center justify-center text-clay mb-6">
                             <i data-lucide="sparkles" class="w-6 h-6"></i>
                         </div>
                         <h3 class="font-serif text-2xl text-sand mb-3" data-i18n="exp3_title">Путь Керамиста (Курс)</h3>
@@ -392,7 +367,7 @@
     </section>
 
     <!-- COWORKING SECTION -->
-    <section id="coworking" class="py-24 px-6 border-t border-borderdark bg-carddark/20">
+    <section id="coworking" class="py-24 px-6 border-t border-borderdark bg-carddark/30 relative z-10">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="cowork_subtitle">Дом свободных творцов</span>
@@ -402,14 +377,14 @@
                 </p>
 
                 <div class="space-y-4 mb-8">
-                    <div class="flex items-start gap-4 p-4 rounded-xl bg-carddark border border-borderdark">
+                    <div class="flex items-start gap-4 p-4 rounded-xl glass-card">
                         <i data-lucide="check-circle-2" class="w-5 h-5 text-clay shrink-0 mt-0.5"></i>
                         <div>
                             <h4 class="text-sand font-medium text-sm" data-i18n="cowork_i1_t">Полная свобода творчества</h4>
                             <p class="text-stone-400 text-xs font-light mt-1" data-i18n="cowork_i1_d">Тишина, профессиональные круги Shimpo, стек и турнетки.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 p-4 rounded-xl bg-carddark border border-borderdark">
+                    <div class="flex items-start gap-4 p-4 rounded-xl glass-card">
                         <i data-lucide="check-circle-2" class="w-5 h-5 text-clay shrink-0 mt-0.5"></i>
                         <div>
                             <h4 class="text-sand font-medium text-sm" data-i18n="cowork_i2_t">Бережный обжиг</h4>
@@ -424,8 +399,7 @@
             </div>
 
             <div class="relative">
-                <div class="aspect-square rounded-2xl bg-carddark border border-borderdark p-8 flex flex-col justify-between relative overflow-hidden">
-                    <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-clay/10 rounded-full blur-3xl"></div>
+                <div class="glass-card aspect-square rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden">
                     <div>
                         <span class="text-xs uppercase tracking-widest text-clay font-semibold" data-i18n="resident_sub">Резиденция</span>
                         <h3 class="font-serif text-3xl text-sand mt-2" data-i18n="resident_title">Ваш творческий ритм</h3>
@@ -451,7 +425,7 @@
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="py-24 px-6 border-t border-borderdark">
+    <section id="faq" class="py-24 px-6 border-t border-borderdark relative z-10">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
                 <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="faq_subtitle">Забота & Ответы</span>
@@ -459,7 +433,7 @@
             </div>
 
             <div class="space-y-4">
-                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden transition-all">
+                <div class="glass-card rounded-2xl overflow-hidden transition-all">
                     <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex items-center justify-between text-sand hover:text-clay transition-colors">
                         <span class="font-medium text-base sm:text-lg" data-i18n="faq1_q">Вдруг у меня ничего не получится?</span>
                         <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-clay transition-transform"></i>
@@ -469,7 +443,7 @@
                     </div>
                 </div>
 
-                <div class="bg-carddark border border-borderdark rounded-2xl overflow-hidden transition-all">
+                <div class="glass-card rounded-2xl overflow-hidden transition-all">
                     <button onclick="toggleFaq(2)" class="w-full p-6 text-left flex items-center justify-between text-sand hover:text-clay transition-colors">
                         <span class="font-medium text-base sm:text-lg" data-i18n="faq2_q">Можно ли пить кофе из своей будущей чашки?</span>
                         <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-clay transition-transform"></i>
@@ -482,8 +456,8 @@
         </div>
     </section>
 
-    <!-- FOOTER / CONTACTS -->
-    <footer id="contacts" class="py-20 px-6 border-t border-borderdark bg-black">
+    <!-- FOOTER / CONTACTS WITH MAP BADGE -->
+    <footer id="contacts" class="py-20 px-6 border-t border-borderdark bg-black relative z-10">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
@@ -499,10 +473,13 @@
 
             <div>
                 <h4 class="text-xs uppercase tracking-widest text-sand font-semibold mb-4" data-i18n="footer_location_title">Адрес дома</h4>
-                <p class="text-stone-400 text-xs font-light leading-relaxed flex items-start gap-2" data-i18n="footer_address">
+                <p class="text-stone-400 text-xs font-light leading-relaxed flex items-start gap-2 mb-3" data-i18n="footer_address">
                     <i data-lucide="map-pin" class="w-4 h-4 text-clay shrink-0 mt-0.5"></i>
                     Тбилиси, Нуцубидзе 2-й мкр, 1-й квартал, д. 1 (м. Важа-Пшавела)
                 </p>
+                <a href="https://maps.google.com/?q=Nutsubidze+2nd+mkr+Tbilisi" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-clay hover:underline font-medium">
+                    <i data-lucide="navigation" class="w-3.5 h-3.5"></i> Google Maps
+                </a>
             </div>
 
             <div>
@@ -537,7 +514,7 @@
     <div id="bookingModal" class="fixed inset-0 z-50 hidden transition-opacity duration-300">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
-            <div class="bg-carddark border border-borderdark w-full max-w-lg rounded-2xl p-8 relative shadow-2xl">
+            <div class="glass-card w-full max-w-lg rounded-2xl p-8 relative shadow-2xl bg-carddark">
                 <button onclick="closeModal()" aria-label="Close" class="absolute top-6 right-6 text-stone-400 hover:text-sand transition-colors">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
@@ -554,7 +531,7 @@
                             <option value="Первое прикосновение к кругу">Первое прикосновение к кругу</option>
                             <option value="Свидание при свечах">Свидание при свечах</option>
                             <option value="Путь Керамиста">Путь Керамиста (Курс)</option>
-                            <option value="Заказ: Чаша Утренний медитатор">Забрать: Чаша «Утренний медитатор»</option>
+                            <option value="Запрос: Подарочный сертификат">Подарочный сертификат</option>
                         </select>
                     </div>
 
@@ -584,11 +561,10 @@
         </div>
     </div>
 
-    <!-- SCRIPTS, FULL I18N SYNC & GEO-SEO LOGIC -->
+    <!-- SCRIPTS & I18N -->
     <script>
         lucide.createIcons();
 
-        // SEO TITLES AND DESCRIPTIONS PER LANGUAGE
         const seoData = {
             ru: {
                 title: "IRIS CERAMICS — Гончарная мастерская, коворкинг и мастер-классы в Тбилиси",
@@ -604,12 +580,12 @@
             }
         };
 
-        // FULL TRANSLATION DICTIONARY
         const i18nData = {
             ru: {
                 nav_philosophy: "Философия",
                 nav_shop: "Артефакты",
                 nav_experiences: "Опыт & Эмоции",
+                nav_gifts: "Подарки",
                 nav_coworking: "Дом Мастеров",
                 nav_faq: "FAQ",
                 btn_book: "Почувствовать",
@@ -630,6 +606,10 @@
                 item3_name: "Набор «Тихий ужин на двоих»",
                 item3_desc: "Сет из 2-х уникальных блюд. Создает невероятную атмосферу за столом.",
                 btn_adopt: "Забрать себе",
+                gift_subtitle: "Подарите особенный момент",
+                gift_title: "Подарочные сертификаты IRIS",
+                gift_desc: "Идеальный подарок для близких — возможность прикоснуться к искусству, замедлиться и создать ценную вещь своими руками. Доступны электронные и красивые физические сертификаты.",
+                btn_gift: "Оформить сертификат",
                 exp_subtitle: "Чувственный опыт",
                 exp_title: "Погружение & Разгрузка",
                 exp_desc: "Забудьте о дедлайнах. Отключите уведомления. Только вы и мягкая глина.",
@@ -687,6 +667,7 @@
                 nav_philosophy: "ფილოსოფია",
                 nav_shop: "არტეფაქტები",
                 nav_experiences: "გამოცდილება & ემოციები",
+                nav_gifts: "საჩუქრები",
                 nav_coworking: "ოსტატების სახლი",
                 nav_faq: "FAQ",
                 btn_book: "შეიგრძენი",
@@ -707,6 +688,10 @@
                 item3_name: "ნაკრები «მშვიდი ვახშამი ორზე»",
                 item3_desc: "2 უნიკალური თეფშისგან შემდგარი სეტი. ქმნის წარმოუდგენელ ატმოსფეროს მაგიდასთან.",
                 btn_adopt: "წაღება",
+                gift_subtitle: "აჩუქეთ განსაკუთრებული მომენტი",
+                gift_title: "IRIS-ის სასაჩუქრე ვაუჩერები",
+                gift_desc: "იდეალური საჩუქარი საყვარელი ადამიანებისთვის — შესაძლებლობა შეეხონ ხელოვნებას, შეანელონ რიტმი და შექმნან ღირებული ნივთი საკუთარი ხელით. ხელმისაწვდომია ელექტრონული და ფიზიკური ბარათები.",
+                btn_gift: "ვაუჩერის გაფორმება",
                 exp_subtitle: "სენსორული გამოცდილება",
                 exp_title: "ჩაძირვა & განტვირთვა",
                 exp_desc: "დაივიწყეთ დედლაინები. გამორთეთ შეტყობინებები. მხოლოდ თქვენ და რბილი თიხა.",
@@ -764,6 +749,7 @@
                 nav_philosophy: "Philosophy",
                 nav_shop: "Artifacts",
                 nav_experiences: "Experiences & Feelings",
+                nav_gifts: "Gifts",
                 nav_coworking: "House of Artists",
                 nav_faq: "FAQ",
                 btn_book: "Experience",
@@ -784,6 +770,10 @@
                 item3_name: "Set «Quiet Dinner for Two»",
                 item3_desc: "Set of 2 unique dishes. Creates an incredible atmosphere at your table.",
                 btn_adopt: "Adopt This",
+                gift_subtitle: "Give a Special Moment",
+                gift_title: "IRIS Gift Certificates",
+                gift_desc: "The perfect gift for loved ones — a chance to touch art, slow down, and create a valuable piece with their own hands. Digital and physical cards available.",
+                btn_gift: "Get Gift Certificate",
                 exp_subtitle: "Sensory Experience",
                 exp_title: "Immersion & Unwind",
                 exp_desc: "Forget about deadlines. Turn off notifications. Just you and soft clay.",
@@ -839,22 +829,18 @@
             }
         };
 
-        // FULL DUAL-SYNC LANGUAGE SWITCHER FUNCTION
         function setLanguage(lang) {
             const data = i18nData[lang];
             const seo = seoData[lang];
             if (!data) return;
 
-            // 1. Update HTML Lang Attribute for Search Engines
             document.documentElement.lang = lang === 'ge' ? 'ka' : lang;
 
-            // 2. Update Document Title & Description for SEO
             if (seo) {
                 document.getElementById('seo-title').textContent = seo.title;
                 document.getElementById('seo-desc').setAttribute('content', seo.desc);
             }
 
-            // 3. Update DOM Elements with data-i18n attribute
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (data[key]) {
@@ -862,13 +848,11 @@
                 }
             });
 
-            // 4. Update Form Placeholders
             const nameInput = document.getElementById('inputName');
             const contactInput = document.getElementById('inputContact');
             if (nameInput && data.input_name_ph) nameInput.placeholder = data.input_name_ph;
             if (contactInput && data.input_contact_ph) contactInput.placeholder = data.input_contact_ph;
 
-            // 5. Synchronize both Desktop and Mobile UI button states
             ['ru', 'ge', 'en'].forEach(l => {
                 const btn = document.getElementById(`lang-btn-${l}`);
                 const mBtn = document.getElementById(`m-lang-btn-${l}`);
