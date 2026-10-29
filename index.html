@@ -3,7 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRIS CERAMICS — Искусство замедлиться & Авторская керамика</title>
+    
+    <!-- SEO & AI SEARCH ENGINE OPTIMIZATION (GEO) -->
+    <title id="seo-title">IRIS CERAMICS — Гончарная мастерская, коворкинг и мастер-классы в Тбилиси</title>
+    <meta id="seo-desc" name="description" content="Уютная гончарная студия и арт-коворкинг в Тбилиси (Нуцубидзе, м. Важа-Пшавела). Мастер-классы по ручной лепке, гончарному кругу, свидания при свечах и авторская керамика.">
+    <meta name="keywords" content="гончарная мастерская тбилиси, კერამიკის მასტერკლასი თბილისში, pottery workshop tbilisi, арт коворкинг тбилиси, керамика ручной работы, ваби саби тбилиси">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://iris-ceramics.vercel.app/">
+
+    <!-- OPEN GRAPH FOR SOCIALS & AI PREVIEWS -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IRIS CERAMICS — Искусство замедлиться & Авторская керамика">
+    <meta property="og:description" content="Уютная гончарная студия и арт-коворкинг в Тбилиси. Мастер-классы, коворкинг и авторские изделия.">
+    <meta property="og:url" content="https://iris-ceramics.vercel.app/">
+    <meta property="og:site_name" content="IRIS Ceramics Tbilisi">
+    
+    <!-- JSON-LD STRUCTURED DATA FOR GOOGLE & AI CRAWLERS -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "IRIS Ceramics Studio Tbilisi",
+      "image": "https://iris-ceramics.vercel.app/og-image.jpg",
+      "@id": "https://iris-ceramics.vercel.app/",
+      "url": "https://iris-ceramics.vercel.app/",
+      "telephone": "",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nutsubidze 2nd mkr, 1st micro, bldg 1",
+        "addressLocality": "Tbilisi",
+        "addressRegion": "Kvemo Kartli / Tbilisi",
+        "postalCode": "0183",
+        "addressCountry": "GE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.7241,
+        "longitude": 44.7335
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "11:00",
+        "closes": "21:00"
+      },
+      "sameAs": [
+        "https://instagram.com/iris.ceramics_"
+      ],
+      "description": "Pottery workshops, ceramic courses, art co-working and handcrafted ceramics in Tbilisi."
+    }
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +125,7 @@
     <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/?text=Hello!%20I%20want%20to%20experience%20IRIS%20Ceramics" 
        target="_blank" 
-       aria-label="WhatsApp" 
+       aria-label="WhatsApp Chat" 
        class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group">
         <i data-lucide="message-circle" class="w-7 h-7"></i>
         <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out text-xs font-semibold uppercase tracking-wider pl-0 group-hover:pl-2">
@@ -98,6 +156,7 @@
             </nav>
 
             <div class="hidden lg:flex items-center gap-4">
+                <!-- Desktop Language Switcher -->
                 <div class="flex items-center gap-1 bg-carddark border border-borderdark rounded-full p-1 text-xs">
                     <button onclick="setLanguage('ru')" id="lang-btn-ru" class="px-2.5 py-1 rounded-full text-white bg-clay font-medium transition-all">RU</button>
                     <button onclick="setLanguage('ge')" id="lang-btn-ge" class="px-2.5 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all">GE</button>
@@ -111,7 +170,7 @@
 
             <!-- Mobile Menu Toggle -->
             <div class="flex lg:hidden items-center gap-3">
-                <button onclick="toggleMobileMenu()" class="p-2 text-stone-300 hover:text-clay">
+                <button onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="p-2 text-stone-300 hover:text-clay">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
@@ -128,6 +187,7 @@
             </nav>
 
             <div class="pt-4 border-t border-borderdark flex items-center justify-between">
+                <!-- Mobile Language Switcher Sync -->
                 <div class="flex items-center gap-1 bg-bgdark border border-borderdark rounded-full p-1 text-xs">
                     <button onclick="setLanguage('ru')" id="m-lang-btn-ru" class="px-3 py-1 rounded-full text-white bg-clay font-medium">RU</button>
                     <button onclick="setLanguage('ge')" id="m-lang-btn-ge" class="px-3 py-1 rounded-full text-stone-400 font-medium">GE</button>
@@ -141,14 +201,14 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (EMOTIONAL IMPACT) -->
+    <!-- HERO SECTION -->
     <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(#C27A5A_1px,transparent_1px)] [background-size:32px_32px]"></div>
         
         <div class="relative z-10 max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-clay/30 bg-carddark/60 text-clay text-xs tracking-widest uppercase mb-8 backdrop-blur-sm">
                 <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                <span data-i18n="hero_location">Оазис тишины в сердце Тбилиси</span>
+                <span data-i18n="hero_location">Оазис тишины в сердце Тбилиси • м. Важа-Пшавела</span>
             </div>
 
             <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-sand mb-8 leading-[1.2]" data-i18n="hero_title">
@@ -170,7 +230,7 @@
         </div>
     </section>
 
-    <!-- PHILOSOPHY / SENSORY SECTION -->
+    <!-- PHILOSOPHY SECTION -->
     <section id="philosophy" class="py-20 px-6 border-t border-borderdark bg-carddark/20">
         <div class="max-w-5xl mx-auto text-center">
             <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="philo_subtitle">Философия Ваби-Саби</span>
@@ -181,12 +241,12 @@
         </div>
     </section>
 
-    <!-- SHOP / ARTIFACTS SECTION -->
+    <!-- ARTIFACTS / SHOP SECTION -->
     <section id="shop" class="py-24 px-6 border-t border-borderdark bg-carddark/40">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
                 <div>
-                    <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="shop_subtitle">Живые предмет</span>
+                    <span class="text-clay text-xs tracking-[0.2em] uppercase font-semibold" data-i18n="shop_subtitle">Живые предметы</span>
                     <h2 class="font-serif text-3xl sm:text-5xl text-sand mt-3 font-normal" data-i18n="shop_title">Керамика с душой</h2>
                 </div>
                 <p class="text-stone-400 text-sm max-w-md font-light mt-4 md:mt-0" data-i18n="shop_desc">
@@ -278,7 +338,7 @@
                     </div>
                     <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
                         <span class="text-xs text-stone-400 flex items-center gap-1.5">
-                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> 2 часа медитации
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> <span data-i18n="time_2h">2 часа</span>
                         </span>
                         <button onclick="openModal('Первое прикосновение к кругу')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1" data-i18n="btn_feel">
                             Забронировать <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -294,12 +354,12 @@
                         </div>
                         <h3 class="font-serif text-2xl text-sand mb-3" data-i18n="exp2_title">Свидание при свечах</h3>
                         <p class="text-stone-400 text-sm font-light leading-relaxed mb-6" data-i18n="exp2_desc">
-                            Приглушенный свет, тихий джаז, винные бокалы и вы вдвоем, создающие общую память своими руками.
+                            Приглушенный свет, тихий джаз, винные бокалы и вы вдвоем, создающие общую память своими руками.
                         </p>
                     </div>
                     <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
                         <span class="text-xs text-stone-400 flex items-center gap-1.5">
-                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> Вечер для двоих
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-clay"></i> <span data-i18n="time_date">2 часа (для 2-х)</span>
                         </span>
                         <button onclick="openModal('Свидание при свечах')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1" data-i18n="btn_feel">
                             Забронировать <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -320,7 +380,7 @@
                     </div>
                     <div class="pt-6 border-t border-borderdark/60 flex items-center justify-between">
                         <span class="text-xs text-stone-400 flex items-center gap-1.5">
-                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-clay"></i> 4–8 погружений
+                            <i data-lucide="calendar" class="w-3.5 h-3.5 text-clay"></i> <span data-i18n="time_course">4–8 занятий</span>
                         </span>
                         <button onclick="openModal('Путь Керамиста')" class="text-xs uppercase tracking-widest text-clay font-semibold hover:text-clay-light transition-colors flex items-center gap-1" data-i18n="btn_feel">
                             Забронировать <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -373,15 +433,15 @@
                     <div class="space-y-6 my-auto">
                         <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
                             <span class="text-stone-300 text-sm" data-i18n="res_1">Разовый визит</span>
-                            <span class="font-serif text-xl text-clay">Открыто</span>
+                            <span class="font-serif text-xl text-clay" data-i18n="res_open">Открыто</span>
                         </div>
                         <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
                             <span class="text-stone-300 text-sm" data-i18n="res_2">Ключ резидента (Месяц)</span>
-                            <span class="font-serif text-xl text-clay">Доступно</span>
+                            <span class="font-serif text-xl text-clay" data-i18n="res_avail">Доступно</span>
                         </div>
                         <div class="flex justify-between items-baseline border-b border-borderdark pb-3">
                             <span class="text-stone-300 text-sm" data-i18n="res_3">Полка в печи</span>
-                            <span class="font-serif text-xl text-clay">Есть</span>
+                            <span class="font-serif text-xl text-clay" data-i18n="res_yes">Есть</span>
                         </div>
                     </div>
                     <p class="text-xs text-stone-400 font-light" data-i18n="res_note">Скидки на обжиг и глазури для постоянных резидентов.</p>
@@ -454,7 +514,7 @@
                     </a>
                     <a href="https://wa.me/?text=Hello!%20I%20want%20to%20visit%20IRIS" target="_blank" class="flex items-center gap-2 hover:text-clay transition-colors group">
                         <i data-lucide="message-circle" class="w-4 h-4 text-clay"></i> 
-                        <span>WhatsApp</span>
+                        <span>WhatsApp Chat</span>
                     </a>
                 </div>
             </div>
@@ -473,12 +533,12 @@
         </div>
     </footer>
 
-    <!-- MODAL FOR BOOKING / PURCHASING -->
+    <!-- MODAL FOR BOOKING -->
     <div id="bookingModal" class="fixed inset-0 z-50 hidden transition-opacity duration-300">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
         <div class="relative z-10 min-h-screen flex items-center justify-center p-4">
             <div class="bg-carddark border border-borderdark w-full max-w-lg rounded-2xl p-8 relative shadow-2xl">
-                <button onclick="closeModal()" class="absolute top-6 right-6 text-stone-400 hover:text-sand transition-colors">
+                <button onclick="closeModal()" aria-label="Close" class="absolute top-6 right-6 text-stone-400 hover:text-sand transition-colors">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
 
@@ -500,12 +560,12 @@
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2" data-i18n="modal_field_name">Ваше имя</label>
-                        <input type="text" required placeholder="Как к вам обращаться?" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
+                        <input type="text" id="inputName" required placeholder="Как к вам обращаться?" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
                     </div>
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-stone-400 mb-2" data-i18n="modal_field_contact">Контакты (WhatsApp / Instagram)</label>
-                        <input type="text" required placeholder="@username или номер телефона" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
+                        <input type="text" id="inputContact" required placeholder="@username или номер телефона" class="w-full bg-bgdark border border-borderdark rounded-xl px-4 py-3 text-sm text-sand placeholder:text-stone-400 focus:outline-none focus:border-clay transition-colors">
                     </div>
 
                     <button type="submit" data-i18n="modal_btn_submit" class="w-full py-4 rounded-xl bg-clay text-white text-xs font-semibold uppercase tracking-widest hover:bg-clay-dark transition-all shadow-lg shadow-clay/20 mt-6">
@@ -524,10 +584,27 @@
         </div>
     </div>
 
-    <!-- SCRIPTS & EMOTIONAL TRANSLATIONS -->
+    <!-- SCRIPTS, FULL I18N SYNC & GEO-SEO LOGIC -->
     <script>
         lucide.createIcons();
 
+        // SEO TITLES AND DESCRIPTIONS PER LANGUAGE
+        const seoData = {
+            ru: {
+                title: "IRIS CERAMICS — Гончарная мастерская, коворкинг и мастер-классы в Тбилиси",
+                desc: "Уютная гончарная студия и арт-коворкинг в Тбилиси (Нуцубидзе, м. Важа-Пшавела). Мастер-классы по ручной лепке, гончарному кругу, свидания при свечах и авторская керамика."
+            },
+            ge: {
+                title: "IRIS CERAMICS — კერამიკის სტუდია, კოუორქინგი და მასტერკლასები თბილისში",
+                desc: "მყუდრო თიხის სტუდია და არტ-კოუორქინგი თბილისში (ნუცუბიძე, მ. ვაჟა-ფშაველა). ხელით ძერწვის მასტერკლასები, კერამიკული პაემანი და ავტორული ნამუშევრები."
+            },
+            en: {
+                title: "IRIS CERAMICS — Pottery Studio, Co-working & Workshops in Tbilisi",
+                desc: "Cozy ceramic studio and art co-working in Tbilisi (Nutsubidze, M. Vazha-Pshavela). Pottery workshops, romantic candlelit dates, and handcrafted ceramics."
+            }
+        };
+
+        // FULL TRANSLATION DICTIONARY
         const i18nData = {
             ru: {
                 nav_philosophy: "Философия",
@@ -536,7 +613,7 @@
                 nav_coworking: "Дом Мастеров",
                 nav_faq: "FAQ",
                 btn_book: "Почувствовать",
-                hero_location: "Оазис тишины в сердце Тбилиси",
+                hero_location: "Оазис тишины в сердце Тбилиси • м. Важа-Пшавела",
                 hero_title: "Замедлите суету мира. Вспомните, каково это — создавать тепло своими руками.",
                 hero_desc: "Здесь время останавливается. Запах влажной глины, мягкое вращение гончарного круга и моментальное ощущение полного присутствия в настоящем.",
                 hero_btn_experience: "Погрузиться в процесс",
@@ -562,6 +639,9 @@
                 exp2_desc: "Приглушенный свет, тихий джаз, винные бокалы и вы вдвоем, создающие общую память своими руками.",
                 exp3_title: "Путь Керамиста (Курс)",
                 exp3_desc: "От простой лепки до освоения высокотемпературных глазурей. Ваше новое творческое альтер-эго.",
+                time_2h: "2 часа",
+                time_date: "2 часа (для 2-х)",
+                time_course: "4–8 занятий",
                 btn_feel: "Забронировать",
                 cowork_subtitle: "Дом свободных творцов",
                 cowork_title: "Ваша личная мастерская",
@@ -576,6 +656,9 @@
                 res_1: "Разовый визит",
                 res_2: "Ключ резидента (Месяц)",
                 res_3: "Полка в печи",
+                res_open: "Открыто",
+                res_avail: "Доступно",
+                res_yes: "Есть",
                 res_note: "Скидки на обжиг и глазури для постоянных резидентов.",
                 faq_subtitle: "Забота & Ответы",
                 faq_title: "Все, о чем вы хотели спросить",
@@ -596,7 +679,9 @@
                 modal_field_contact: "Контакты (WhatsApp / Instagram)",
                 modal_btn_submit: "Забронировать время",
                 modal_success_title: "Ждем вас в гости!",
-                modal_success_desc: "Мы свяжемся с вами в течении пары минут для уточнения деталей."
+                modal_success_desc: "Мы свяжемся с вами в течении пары минут для уточнения деталей.",
+                input_name_ph: "Как к вам обращаться?",
+                input_contact_ph: "@username или номер телефона"
             },
             ge: {
                 nav_philosophy: "ფილოსოფია",
@@ -605,7 +690,7 @@
                 nav_coworking: "ოსტატების სახლი",
                 nav_faq: "FAQ",
                 btn_book: "შეიგრძენი",
-                hero_location: "სიმშვიდის ოაზისი თბილისის გულში",
+                hero_location: "სიმშვიდის ოაზისი თბილისის გულში • მ. ვაჟა-ფშაველა",
                 hero_title: "შეანელეთ სამყაროს ქაოსი. გაიხსენეთ, რას ნიშნავს სითბოს შექმნა საკუთარი ხელით.",
                 hero_desc: "აქ დრო ჩერდება. ნოტიო თიხის სურნელი, დაზგის მშვიდი ტრიალი და აწმყოში სრული ყოფნის შეგრძნება.",
                 hero_btn_experience: "პროცესში ჩაძირვა",
@@ -631,6 +716,9 @@
                 exp2_desc: "მიჩუმებული სინათლე, მშვიდი ჯაზი, ღვინის ჭიქები და თქვენ ორნი, ვინც საკუთარი ხელით ქმნით საერთო მოგონებას.",
                 exp3_title: "კერამიკოსის გზა (კურსი)",
                 exp3_desc: "მარტივი ძერწვიდან მაღალტემპერატურული ჭიქურების ათვისებამდე. თქვენი ახალი შემოქმედებითი ალტერ-ეგო.",
+                time_2h: "2 საათი",
+                time_date: "2 საათი (ორზე)",
+                time_course: "4–8 შეხვედრა",
                 btn_feel: "დაჯავშნა",
                 cowork_subtitle: "თავისუფალი შემოქმედების სახლი",
                 cowork_title: "თქვენი პირადი სახელოსნო",
@@ -645,6 +733,9 @@
                 res_1: "ერთჯერადი ვიზიტი",
                 res_2: "რეზიდენტის გასაღები (თვე)",
                 res_3: "თარო ღუმელში",
+                res_open: "ღიაა",
+                res_avail: "ხელმისაწვდომია",
+                res_yes: "დიახ",
                 res_note: "ფასდაკლებები გამოწვასა და ჭიქურებზე მუდმივი რეზიდენტებისთვის.",
                 faq_subtitle: "ზრუნვა & პასუხები",
                 faq_title: "ყველაფერი, რისი კითხვაც გინდოდათ",
@@ -665,7 +756,9 @@
                 modal_field_contact: "კონტაქტი (WhatsApp / Instagram)",
                 modal_btn_submit: "დროის დაჯავშნა",
                 modal_success_title: "გელოდებით სტუმრად!",
-                modal_success_desc: "ორიოდე წუთში დაგიკავშირდებით დეტალების დასაზუსტებლად."
+                modal_success_desc: "ორიოდე წუთში დაგიკავშირდებით დეტალების დასაზუსტებლად.",
+                input_name_ph: "როგორ მოგმართოთ?",
+                input_contact_ph: "@username ან ტელეფონის ნომერი"
             },
             en: {
                 nav_philosophy: "Philosophy",
@@ -674,7 +767,7 @@
                 nav_coworking: "House of Artists",
                 nav_faq: "FAQ",
                 btn_book: "Experience",
-                hero_location: "An Oasis of Silence in the Heart of Tbilisi",
+                hero_location: "An Oasis of Silence in the Heart of Tbilisi • M. Vazha-Pshavela",
                 hero_title: "Slow down the noise of the world. Remember what it feels like to create warmth with your hands.",
                 hero_desc: "Time stops here. The smell of wet clay, the gentle spin of the pottery wheel, and an immediate feeling of total presence in the moment.",
                 hero_btn_experience: "Immerse Yourself",
@@ -700,6 +793,9 @@
                 exp2_desc: "Dimmed lights, soft jazz, wine glasses, and the two of you creating a shared memory with your hands.",
                 exp3_title: "The Potter's Path (Course)",
                 exp3_desc: "From basic handbuilding to mastering high-temperature glazes. Your new creative alter-ego.",
+                time_2h: "2 hours",
+                time_date: "2 hours (for 2)",
+                time_course: "4–8 classes",
                 btn_feel: "Book Experience",
                 cowork_subtitle: "House of Free Creators",
                 cowork_title: "Your Personal Studio",
@@ -714,6 +810,9 @@
                 res_1: "Single Visit",
                 res_2: "Resident Pass (Month)",
                 res_3: "Kiln Shelf Rental",
+                res_open: "Open",
+                res_avail: "Available",
+                res_yes: "Yes",
                 res_note: "Discounts on firings and glazes for regular studio residents.",
                 faq_subtitle: "Care & Answers",
                 faq_title: "Everything You Wanted to Ask",
@@ -734,14 +833,28 @@
                 modal_field_contact: "Contact (WhatsApp / Instagram)",
                 modal_btn_submit: "Reserve Time",
                 modal_success_title: "We look forward to seeing you!",
-                modal_success_desc: "We will contact you in a couple of minutes to finalize details."
+                modal_success_desc: "We will contact you in a couple of minutes to finalize details.",
+                input_name_ph: "How should we call you?",
+                input_contact_ph: "@username or phone number"
             }
         };
 
+        // FULL DUAL-SYNC LANGUAGE SWITCHER FUNCTION
         function setLanguage(lang) {
             const data = i18nData[lang];
+            const seo = seoData[lang];
             if (!data) return;
 
+            // 1. Update HTML Lang Attribute for Search Engines
+            document.documentElement.lang = lang === 'ge' ? 'ka' : lang;
+
+            // 2. Update Document Title & Description for SEO
+            if (seo) {
+                document.getElementById('seo-title').textContent = seo.title;
+                document.getElementById('seo-desc').setAttribute('content', seo.desc);
+            }
+
+            // 3. Update DOM Elements with data-i18n attribute
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (data[key]) {
@@ -749,16 +862,23 @@
                 }
             });
 
+            // 4. Update Form Placeholders
+            const nameInput = document.getElementById('inputName');
+            const contactInput = document.getElementById('inputContact');
+            if (nameInput && data.input_name_ph) nameInput.placeholder = data.input_name_ph;
+            if (contactInput && data.input_contact_ph) contactInput.placeholder = data.input_contact_ph;
+
+            // 5. Synchronize both Desktop and Mobile UI button states
             ['ru', 'ge', 'en'].forEach(l => {
                 const btn = document.getElementById(`lang-btn-${l}`);
                 const mBtn = document.getElementById(`m-lang-btn-${l}`);
                 
                 if (l === lang) {
-                    if (btn) btn.className = "px-2.5 py-1 rounded-full text-white bg-clay font-medium transition-all";
-                    if (mBtn) mBtn.className = "px-3 py-1 rounded-full text-white bg-clay font-medium transition-all";
+                    if (btn) btn.className = "px-2.5 py-1 rounded-full text-white bg-clay font-medium transition-all shadow-sm";
+                    if (mBtn) mBtn.className = "px-3 py-1 rounded-full text-white bg-clay font-medium transition-all shadow-sm";
                 } else {
                     if (btn) btn.className = "px-2.5 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all";
-                    if (mBtn) mBtn.className = "px-3 py-1 rounded-full text-stone-400 font-medium transition-all";
+                    if (mBtn) mBtn.className = "px-3 py-1 rounded-full text-stone-400 font-medium hover:text-sand transition-all";
                 }
             });
         }
